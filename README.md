@@ -14,7 +14,7 @@ from nannyml.performance_estimation.confidence_based.functions_standalone import
     estimate_specificity
 )
 
-# create some fake model predictions for this example:
+# create some fake model predictions for this example (need to have been calibrated):
 y_pred_proba = np.asarray([0.9,0.9,0.9,0.8,0.8,0.2,0.2,0.1,0.1])
 y_pred = np.where(y_pred_proba > 0.1,1,0)
 
