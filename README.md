@@ -1,3 +1,29 @@
+# Andrew Humphrey's fork of the NannyML machine learning model performance estimation repository.
+
+This is a fork of the official NannyML performance prediction repo. For my own convenience, I have added the option to use the "Confidence Based Performance Estimation" methods as standalone functions. Apart from names, the functions themselves are exact copies of those used inside the original NannyML package. An example usage is given below:
+
+```python
+import numpy as np
+
+from nannyml.performance_estimation.confidence_based.functions_standalone import (
+    estimate_f1, 
+    estimate_precision,
+    estimate_accuracy,
+    estimate_recall,
+    estimate_roc_auc,
+    estimate_specificity
+)
+
+# create some fake model predictions for this example:
+y_pred_proba = np.asarray([0.9,0.9,0.9,0.8,0.8,0.2,0.2,0.1,0.1])
+y_pred = np.where(y_pred_proba > 0.1,1,0)
+
+# estimate the F1-score:
+estimate_f1(y_pred,y_pred_proba)
+```
+
+Below follows the original NannyML performance estimation readme:
+
 <p align="center">
     <img src="https://assets.website-files.com/6099466e98d9381b3f745b9a/60994ab2b5bd890780db9c84_NannyML%20logo%20horizontal%20typfont.png">
 </p>
